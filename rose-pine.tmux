@@ -242,7 +242,7 @@ main() {
 
     # Changes the icon / character that goes between each window's name in the bar
     local window_status_separator
-    window_status_separator="$(get_tmux_option "@rose_pine_window_status_separator" "  ")"
+    window_status_separator="$(get_tmux_option "@rose_pine_window_status_separator" "")"
 
     # This setting does nothing by itself, it enables the 2 below it to toggle the simplified bar
     local prioritize_windows
@@ -261,14 +261,14 @@ main() {
     local custom_window_sep_current="#I#[fg=$thm_gold,bg=""]$window_separator#[fg=$thm_gold,bg=""]#W"
 
     local right_separator
-    right_separator="$(get_tmux_option "@rose_pine_right_separator" "  ")"
+    right_separator="$(get_tmux_option "@rose_pine_right_separator" "")"
 
     local left_separator
-    left_separator="$(get_tmux_option "@rose_pine_left_separator" "  ")"
+    left_separator="$(get_tmux_option "@rose_pine_left_separator" "")"
 
     local field_separator
     # NOTE: Don't remove
-    field_separator="$(get_tmux_option "@rose_pine_field_separator" " | " )"
+    field_separator="$(get_tmux_option "@rose_pine_field_separator" "|" )"
 
     # END
 
@@ -438,10 +438,10 @@ main() {
     fi
 
     # Defaults to a NerdFont icon, user can change through an option
-    if [[ "$window_status_separator" != "  " ]]; then
+    if [[ "$window_status_separator" != "" ]]; then
         setw window-status-separator "$window_status_separator"
     else
-        setw window-status-separator "  "
+        setw window-status-separator ""
     fi
 
     # Leaves only the window list on the left side
